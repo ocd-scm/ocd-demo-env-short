@@ -1,0 +1,4 @@
+#!/bin/bash
+set +x
+# import the images for this project which may already exist
+"${OCD_CHECKOUT_PATH}/realworld-react-redux/import-images.sh"
