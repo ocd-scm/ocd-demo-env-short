@@ -13,4 +13,4 @@ releases:
       - name: API_ROOT
         value: https://conduit.productionready.io/api
       - replicas: 2
-      - imageStreamTag: "react-redux-realworld:v0.0.2"
+      - imageStreamTag: "react-redux-realworld:v0.0.1"
