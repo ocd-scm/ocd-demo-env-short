@@ -8,9 +8,9 @@ releases:
     chart: ocd-meta/ocd-deployer
     version: "1.0.0"
     values:
-      name: react-redux-realworld
-      deploy_env: 
-      - name: API_ROOT
-        value: https://conduit.productionready.io/api
+      - name: react-redux-realworld
       - replicas: 2
       - imageStreamTag: "react-redux-realworld:v0.0.1"
+      - deploy_env: 
+        - name: API_ROOT
+          value: https://conduit.productionready.io/api
