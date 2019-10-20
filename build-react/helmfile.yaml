@@ -1,0 +1,27 @@
+repositories:
+  - name: ocd-meta 
+    url: https://ocd-scm.github.io/ocd-meta/charts
+releases:
+  - name:  {{ requiredEnv "ENV_PREFIX" }}-realworld
+    labels:
+      builder: realworld
+    chart: ocd-meta/ocd-release-build
+    version: "1.0.0"
+    values:
+      - name: {{ requiredEnv "ENV_PREFIX" }}-realworld
+      - s2iimage: nodejs-8-rhel7
+      - memory_limit: 1024Mi
+      - source_repository_ref: master
+      - insecureSkipTlsVerify: true
+      - source_repository_url: "{{ requiredEnv "OCD_GIT_REPO" }}"
+      - openshiftServer: "{{ requiredEnv "OPENSHIFT_SERVER" }}"
+      - project: "{{ requiredEnv "PROJECT" }}"
+      - build_env: 
+        - name: APP_KEY
+          value: "{{ requiredEnv "APP_KEY" }}"
+      - webhookRepFullname: "{{ requiredEnv "OCD_GIT_PATH" }}"
+      - buildNamespace: "{{ requiredEnv "PROJECT" }}"
+      - build: realworld
+      - deploy_env: 
+        - name: OPENSHIFT_SERVER
+          value: "{{ requiredEnv "OPENSHIFT_SERVER" }}"
