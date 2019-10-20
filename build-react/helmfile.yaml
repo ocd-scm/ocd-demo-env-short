@@ -2,13 +2,13 @@ repositories:
   - name: ocd-meta 
     url: https://ocd-scm.github.io/ocd-meta/charts
 releases:
-  - name:  {{ requiredEnv "ENV_PREFIX" }}-realworld
+  - name:  {{ requiredEnv "ENV_PREFIX" }}-realworld-build
     labels:
       builder: realworld
     chart: ocd-meta/ocd-release-build
     version: "1.0.0"
     values:
-      - name: {{ requiredEnv "ENV_PREFIX" }}-realworld
+      - name: {{ requiredEnv "ENV_PREFIX" }}-realworld-build
       - s2iimage: nodejs-8-rhel7
       - memory_limit: 1024Mi
       - source_repository_ref: master
